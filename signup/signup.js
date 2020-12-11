@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     // Modal ablak megjelenítése.
     $("#rules").click(function () {
         $("#rulesModal").modal('show');
@@ -40,6 +41,14 @@ $(document).ready(function() {
         } else {
             $(this).removeClass("is-invalid");
             $(this).addClass("is-valid");
+        }
+    });
+
+    $("#checkbox").change(function () {
+        if ($("#checkbox").is(':checked')) {
+            $("#missing-rules").html("");
+        } else {
+            $("#missing-rules").html("Adatvédelmi szabályzat elfogadása kötelező!");
         }
     });
 
@@ -98,6 +107,7 @@ $(document).ready(function() {
                         $("#reg-email").addClass("is-invalid");
                         $(".reg-email-error").html("Ez az email cím már használatban van.");
                     } else {
+                        localStorage.setItem("registration", "success");
                         window.location.href = "../login/login.php";
                     }
                 });

@@ -60,10 +60,10 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
 
             <div class="form-check ml-2">
                 <input class="form-check-input" type="checkbox" value="" id="checkbox" />
-                <label class="form-check-label" id="rules" for="checkbox"  data-toggle="modal" data-target="#rulesModal">Adatvédelmi szabályzat</label>
+                <label class="form-check-label" id="rules" for="checkbox"  data-toggle="modal" data-target="#rulesModal"><a href="#">Adatvédelmi szabályzat</a></label>
             </div>
 
-            <div class="ml-2 text-danger" id="missing-rules"></div>
+            <div class="ml-2 text-danger font-weight-light" id="missing-rules"></div>
 
             <div class="text-center">
                 <button type="button" class="btn text-white mt-4" id="signup">Fiók létrehozása</button>

@@ -142,6 +142,14 @@ img:hover {
   padding: 4px 8px;
 }
 
+.alert {
+  bottom: 0;
+}
+
+#modify-footer > .alert {
+  position: unset;
+}
+
 #modify-btn {
   width: 40%;
   border-radius: 5px;

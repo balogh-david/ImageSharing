@@ -29,17 +29,22 @@
                         <div class="invalid-feedback password-error ml-2">A mező kitöltése kötelező.</div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <label class="ml-1" for="confirm">Régi jelszó megerősítése:</label>
                         <input type="password" id="confirm" class="form-control" />
                         <div class="invalid-feedback confirm-error ml-2">A mező kitöltése kötelező.</div>
                     </div>
-
-                    <div class="text-center text-info" id="success_msg">
-                        <p>Sikeres módosítás.</p>
-                    </div>
+                    
                 </div>
-                <div class="text-center">
+                <div class="text-center" id="modify-footer">
+                    <div class="alert alert-success alert-lg text-center border ml-4 mr-4" hidden id="successedModify" role="alert">
+                        Sikeres Módosítás.
+                    </div>
+
+                    <div class="alert alert-danger alert-lg text-center border ml-4 mr-4" hidden id="failedModify" role="alert">
+                        Sikertelen Módosítás.
+                    </div>
+
                     <a class="btn text-white mb-3" type="button" id="modify-btn">Módosítás</a>
                 </div>
             </div>

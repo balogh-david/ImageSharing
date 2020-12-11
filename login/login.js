@@ -1,4 +1,16 @@
 $(document).ready(function() {
+    if (localStorage.getItem("registration")) {
+        localStorage.removeItem("registration");
+        $("#successedRegistration").removeAttr("hidden");
+        $("#successedRegistration").hide();
+
+        $("#successedRegistration").fadeIn(2000);
+
+        setTimeout(() => {
+            $("#successedRegistration").fadeOut();
+        }, 4000);
+    }
+
     // Felhasználónév mező ellenőrzése.
     $("#log-username").blur(function() {
         username = $(this).val();
@@ -32,6 +44,7 @@ $(document).ready(function() {
                 if (data == "error") {
                     $(".error").html("Hibás felhasználónév vagy jelszó.");
                 } else {
+                    localStorage.setItem("login", "success");
                     window.location.href = "../profile/profile.php";
                 }
             });

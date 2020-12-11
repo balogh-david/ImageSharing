@@ -1,21 +1,30 @@
 <?php
 require_once('../server.php');
 
+$done = false;
+
 if (isset($_FILES['file']['type'])) {
     $file_type = $_FILES['file']['type'];
     $allowed = array("image/jpeg", "image/png");
-}
 
-if (isset($_POST['submit'])) {
-    if (in_array($file_type, $allowed) && is_uploaded_file($_FILES['file']['tmp_name'])) {
-        $imageData = addslashes(file_get_contents($_FILES['file']['tmp_name']));
-        $imageProperties = getimagesize($_FILES['file']['tmp_name']);
+    if (isset($_POST['submit'])) {
+        if (in_array($file_type, $allowed) && is_uploaded_file($_FILES['file']['tmp_name'])) {
+            $imageData = addslashes(file_get_contents($_FILES['file']['tmp_name']));
+            $imageProperties = getimagesize($_FILES['file']['tmp_name']);
+    
+            $sql = "INSERT INTO images (user_id, username, file_name, image_data, uploaded_on) VALUES ('" . $_SESSION['id'] . "','" . $_SESSION['username'] . "','" . $imageProperties['mime'] . "','" . $imageData . "', NOW());";
+            $conn->query($sql);
+            $done = true;
 
-        $sql = "INSERT INTO images (user_id, username, file_name, image_data, uploaded_on) VALUES ('" . $_SESSION['id'] . "','" . $_SESSION['username'] . "','" . $imageProperties['mime'] . "','" . $imageData . "', NOW());";
-        $conn->query($sql);
+        }
 
-        echo '<script>window.location="profile.php"</script>';
-    }
+        if ($done) {
+            echo '<script>localStorage.setItem("success_upload", 200)</script>';
+            echo '<script>window.location="profile.php"</script>';
+        } else {
+            echo '<script>localStorage.setItem("failed_upload", 0)</script>';
+        }
+    } 
 }
 ?>
 
@@ -28,6 +37,4 @@ if (isset($_POST['submit'])) {
         <p class="filename mt-0">Nincs kiválasztott fénykép.</p>
         <input type="submit" class="btn" name="submit" value="Fénykép feltöltése" />
     </div>
-
-    <script src="profile.js"></script>
 </form>

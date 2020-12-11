@@ -46,6 +46,7 @@ if (isset($_POST["logout"])) {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+    <script src="profile.js"></script>
     <link rel="stylesheet" href="../global.css" />
     <link rel="stylesheet" href="profile.css">
 </head>
@@ -100,6 +101,16 @@ if (isset($_POST["logout"])) {
         </div>
     </div>
 
-    <script src="profile.js"></script>
+    <div class="alert alert-success alert-lg text-center border mt-5 mb-5" hidden id="successedLogin" role="alert">
+            Sikeres bejelentkezés.
+    </div>
+
+    <div class="alert alert-success alert-lg text-center border mt-5 mb-5" hidden id="successedUpload" role="alert">
+            A fénykép feltöltése sikeres volt.
+    </div>
+
+    <div class="alert alert-danger alert-lg text-center border mt-5 mb-5" hidden id="failedUpload" role="alert">
+            A fénykép feltöltése sikertelen.
+    </div>
 </body>
 </html>

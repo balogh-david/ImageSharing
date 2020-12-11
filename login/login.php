@@ -55,6 +55,10 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <button type="button" class="btn text-white mt-4">Bejelentkezés</button>
             </div>
         </form>
+
+        <div class="alert alert-success alert-lg text-center border mt-5 mb-5" hidden id="successedRegistration" role="alert">
+            A fiók létrehozása sikeresen megtörtént.
+        </div>
     </div>
     <script src="login.js"></script>
 </body>

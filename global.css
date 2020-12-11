@@ -29,6 +29,14 @@ a[type=button] {
     background: var(--main-color);
 }
 
+.alert {
+    height: 40px;
+    line-height: 0.7;
+    position: absolute;
+    left: 35%;
+    right: 35%;
+}
+
 div>a {
     color: black;
     text-transform: uppercase;
@@ -43,4 +51,11 @@ div>a:hover {
     font-weight: 645;
     color: black;
     text-decoration: none;
+}
+
+@media screen and (max-width: 568px) {
+    .alert {
+        left: 0;
+        right: 0;
+    }
 }
