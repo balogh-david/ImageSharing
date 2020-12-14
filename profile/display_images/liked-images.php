@@ -1,11 +1,17 @@
 <?php
-$_SESSION['side'] = "all-images";
+$_SESSION['side'] = "liked-images";
 ?>
+
+<script src="display_images/images.js"></script>
+
+<script>
+  $("#liked-images").addClass("active");
+</script>
 
 <main>
     <div class="gallery p-3 mt-3" id="show_images">
       <?php
-      $sql_images = "SELECT * FROM images ORDER BY uploaded_on DESC LIMIT 20;";
+      $sql_images = "SELECT * FROM images WHERE image_id IN (SELECT image_id FROM likes WHERE user_id='" . $_SESSION["id"] . "') ORDER BY uploaded_on DESC LIMIT 20";
       $result_images = mysqli_query($conn, $sql_images);
 
       if ($result_images->num_rows > 0) {
@@ -16,15 +22,10 @@ $_SESSION['side'] = "all-images";
       ?>
     </div>
 
-    <?php if ($_SESSION['Alltotal'] > 20) { ?>
+    <?php if ($count_NOPIL['NOPIL'] > 20) { ?>
       <div class="text-center">
         <button class="btn mt-5 mb-5" id="more_images">További képek...</button>
       </div>
     <?php } ?>
-
-    <script src="images.js"></script>
 </main>
 
-<script>
-  $("#all-images").addClass("active");
-</script>

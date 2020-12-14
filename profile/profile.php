@@ -20,6 +20,10 @@ $sql_count_Allimages = "SELECT COUNT(*) AS Alltotal FROM images";
 $result_sql_count_Allimages = mysqli_query($conn, $sql_count_Allimages);
 $Allcount = mysqli_fetch_assoc($result_sql_count_Allimages);
 
+$sql_number_of_pictures_I_liked = "SELECT COUNT(*) AS NOPIL FROM images WHERE image_id IN (SELECT image_id FROM likes WHERE user_id='" . $_SESSION["id"] . "');";
+$result_sql_number_of_pictures_I_liked = mysqli_query($conn, $sql_number_of_pictures_I_liked);
+$count_NOPIL = mysqli_fetch_assoc($result_sql_number_of_pictures_I_liked);
+
 $sql_liked_images = "SELECT COUNT(*) AS likedTotal FROM likes WHERE image_id IN (SELECT image_id FROM images WHERE user_id='" . $_SESSION['id'] . "');";
 $result_sql_liked_images = mysqli_query($conn, $sql_liked_images);
 $All_like = mysqli_fetch_assoc($result_sql_liked_images);
@@ -66,7 +70,8 @@ if (isset($_POST["logout"])) {
         <h1 class="text-center">Képmegosztó </h1>
         <div class="mt-4" id="menu">
             <a class="nav-link" id="all-images" href="profile.php?side=all-images">Összes fénykép</a>
-            <a class="nav-link" id="profile" href="profile.php?side=profile">Saját fényépek</a>
+            <a class="nav-link" id="liked-images" href="profile.php?side=liked-images">Kedvelt fényképek</a>
+            <a class="nav-link" id="profile" href="profile.php?side=profile">Saját fényképek</a>
             <a class="nav-link" id="modify" href="#" data-toggle="modal" data-target="#modal_modify">Adatok módosítása</a>
             <a class="nav-link" id="upload" href="#" onclick="openUpload()">Fénykép feltöltése</a>
         </div>
@@ -79,17 +84,20 @@ if (isset($_POST["logout"])) {
         </div>
     </div>
 
-    <?php require_once("modify.php"); ?>
-    <?php require_once("image-modal.php"); ?>
+    <?php require_once("change_data/modify.php"); ?>
+    <?php require_once("display_images/image-modal.php"); ?>
     
     <div>
         <?php
         switch ($side) {
             case "all-images":
-                require_once("all-images.php");
+                require_once("display_images/all-images.php");
+                break;
+            case "liked-images":
+                require_once("display_images/liked-images.php");
                 break;
             default:
-                require_once("profile-tab.php");
+                require_once("display_images/profile-tab.php");
         }
         ?>
     </div>
@@ -97,7 +105,7 @@ if (isset($_POST["logout"])) {
     <div id="my-upload" class="overlay bg-dark mt-5">
         <a class="closebtn text-white" onclick="closeUpload()">&times;</a>
         <div class="overlay-content mt-5">
-            <?php require_once("upload.php") ?>
+            <?php require_once("upload_image/upload.php") ?>
         </div>
     </div>
 

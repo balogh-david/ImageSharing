@@ -15,6 +15,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
     <link rel="icon" type="image/png" href="../favicon.png" />
     <script src="../regex.js"></script>
@@ -39,23 +40,31 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <h4>Regisztrálj ingyenesen.</h4>
             </div>
 
-            <div class="form-group font-weight-light">
-                <label for="reg-username">Felhasználónév</label>
-                <input type="text" class="form-control" id="reg-username" placeholder="David" />
+            <div class="form-group input-group font-weight-light mb-5">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user" id="user"></i></div>
+                </div>
+
+                <input type="text" class="form-control" id="reg-username" placeholder="Felhasználónév" />
                 <div class="invalid-feedback reg-username-error ml-2">Felhasználónév megadása kötelező.</div>
             </div>
 
-            <div class="form-group font-weight-light">
-                <label for="reg-email">Email cím</label>
+            <div class="form-group input-group font-weight-light mb-5">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-envelope"></i></div>
+                </div>
+
                 <input type="email" class="form-control" id="reg-email" placeholder="example@gmail.com" />
                 <div class="invalid-feedback reg-email-error ml-2">Email cím megadása kötelező.</div>
             </div>
 
-            <div class="form-group font-weight-light">
-                <label for="reg-password">Jelszó</label>
+            <div class="form-group input-group font-weight-light">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-lock" id="lock"></i></div>
+                </div>
+
                 <input type="password" class="form-control" id="reg-password" placeholder="Jelszó" />
                 <div class="invalid-feedback reg-pass-error ml-2">Jelszó megadása kötelező.</div>
-                <small class="text-muted ml-2">Minimum 6 karakter.</small>
             </div>
 
             <div class="form-check ml-2">
@@ -92,6 +101,10 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                         <p>g) harmadik személyek adatait tartalmazzák azok hozzájárulása nélkül;</p>
                         <p>h) kereskedelmi, különösen reklám jellegûek (például más weboldalak hirdetése, szigorúan tiltott a Szolgáltatások bármelyikéhez tartozó weboldal címének, vagy akár a nevére utaló információ közlése)</p>
                         <p>i) szabadon letölthető bármely kép, amely publikálásra került.</p>
+
+                        <div class="text-center">
+                            <button class="btn bg-dark text-white w-25" data-dismiss="modal">Oké</button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../server.php");
+require_once("../../server.php");
 
 $email = $_POST['email'];
 $password = md5($_POST['password']);

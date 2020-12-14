@@ -2,7 +2,7 @@ $(document).ready(function () {
   $("img").click(function () {
     image_id = $(this).attr("id");
     $.post(
-      "select-comments.php",
+      "functions_for_images/select-comments.php",
       {
         image_id: image_id,
       },
@@ -12,7 +12,7 @@ $(document).ready(function () {
     );
 
     $.post(
-      "get-image-owner.php",
+      "functions_for_images/get-image-owner.php",
       {
         image_id: image_id,
       },
@@ -41,7 +41,7 @@ $(document).ready(function () {
       imageIsLiked = false;
     }
 
-    $.post("like.php", {imageIsLiked:imageIsLiked, image_id:image_id}, function(data) {
+    $.post("functions_for_images/like.php", {imageIsLiked:imageIsLiked, image_id:image_id}, function(data) {
     });
   });
 
@@ -50,7 +50,7 @@ $(document).ready(function () {
     comment = $("textarea").val().trim();
     if (comment.length > 0) {
       $.post(
-        "insert-comment.php",
+        "functions_for_images/insert-comment.php",
         {
           id: id,
           comment: comment,

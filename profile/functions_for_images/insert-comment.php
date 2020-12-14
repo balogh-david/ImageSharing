@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../server.php");
+require_once("../../server.php");
 
 if(isset($_POST["id"]) && isset($_POST["comment"])) {
     $id = $_POST["id"];

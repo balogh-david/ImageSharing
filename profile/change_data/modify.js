@@ -9,7 +9,7 @@ $(document).ready(function () {
       $(this).addClass("is-invalid");
       $(".email-error").html("A megadott email formátum érvénytelen.");
     } else {
-      $.post("modify-email.php", { email: email }, function (data) {
+      $.post("change_data/modify-email.php", { email: email }, function (data) {
         if (data == "error") {
           $("#email").addClass("is-invalid");
           $(".email-error").html("Ez az email cím már használatban van.");
@@ -40,7 +40,7 @@ $(document).ready(function () {
       $(this).addClass("is-invalid");
     } else {
       $.post(
-        "confirm-password.php",
+        "change_data/confirm-password.php",
         { confirmPass: confirmPass },
         function (data) {
           if (data == "error") {
@@ -74,7 +74,7 @@ $(document).ready(function () {
       !confirmPass_field.classList.contains("is-invalid")
     ) {
       $.post(
-        "update-datas.php",
+        "change_data/update-datas.php",
         {
           email: email,
           password: password,

@@ -12,3 +12,21 @@ button[type=button] {
 #rules {
     padding-top: 9px;
 }
+
+.input-group-text {
+    width: 40px;
+}
+
+#user,
+#lock {
+    margin-left: 2px;
+}
+
+#rules > a {
+    text-decoration: underline;
+    color: darkblue;
+}
+
+#missing-rules {
+    font-size: 14px;
+}

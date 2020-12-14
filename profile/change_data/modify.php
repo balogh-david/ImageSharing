@@ -51,5 +51,5 @@
         </div>
     </div>
     <script src="../regex.js"></script>
-    <script src="modify.js"></script>
+    <script src="change_data/modify.js"></script>
 </div>

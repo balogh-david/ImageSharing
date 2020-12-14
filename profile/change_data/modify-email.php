@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../server.php");
+require_once("../../server.php");
 
 $email = $_POST['email'];
 $sql = "SELECT email FROM registered_accounts WHERE username = '" . $_SESSION['username'] . "';";

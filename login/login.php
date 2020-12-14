@@ -36,15 +36,21 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <h4>Jelentkezz be.</h4>
             </div>
 
-            <div class="form-group font-weight-light">
-                <label for="log-username">Felhasználónév</label>
-                <input type="text" class="form-control" id="log-username" />
+            <div class="form-group input-group font-weight-light mb-5">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-user"></i></div>
+                </div>
+
+                <input type="text" class="form-control" id="log-username" placeholder="Felhasználónév" />
                 <div class="invalid-feedback ml-2">Felhasználónév megadása kötelező.</div>
             </div>
 
-            <div class="form-group font-weight-light">
-                <label for="log-password">Jelszó</label>
-                <input type="password" class="form-control" id="log-password">
+            <div class="form-group input-group font-weight-light">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                </div>
+
+                <input type="password" class="form-control" id="log-password" placeholder="Jelszó" />
                 <div class="invalid-feedback ml-2">Jelszó megadása kötelező.</div>
             </div>
 

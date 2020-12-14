@@ -21,7 +21,7 @@
       </div>
       <?php } ?>
 
-      <script src="images.js"></script>
+      <script src="display_images/images.js"></script>
   </div>
 </main>
 

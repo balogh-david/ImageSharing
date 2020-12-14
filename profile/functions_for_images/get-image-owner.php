@@ -1,5 +1,5 @@
 <?php
-require_once("../server.php");
+require_once("../../server.php");
 
 if (isset($_POST["image_id"])) {
     $id = $_POST["image_id"];

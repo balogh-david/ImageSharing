@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../server.php");
+require_once("../../server.php");
 
 $sql = "SELECT password FROM registered_accounts WHERE username = '" . $_SESSION['username'] . "';";
 $password = md5($_POST['confirmPass']);

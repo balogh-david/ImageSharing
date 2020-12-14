@@ -10,4 +10,6 @@ $conn = new mysqli($server_name, $server_username, $server_password, $database);
 if ($conn->connect_error) {
     die("Sikertelen kapcsolódás: " . $conn->connect_error);
 }
+
+$conn->set_charset("utf8");
 ?>

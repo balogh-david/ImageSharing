@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../server.php");
+require_once("../../server.php");
 
 if (isset($_POST["imageIsLiked"])) {
     $imageIsLiked = $_POST["imageIsLiked"];
