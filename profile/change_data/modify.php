@@ -23,7 +23,7 @@
 
                         <div class="form-group">
                             <label class="ml-1" for="email">Email cím:</label>
-                            <input type="email" id="email" class="form-control" />
+                            <input type="email" id="email" class="form-control" value="<?php echo $_SESSION['email'] ?>" />
                             <small class="text-muted ml-2">Email formátum kötelező.</small>
                             <div class="invalid-feedback email-error ml-2">A mező kitöltése kötelező.</div>
                         </div>
