@@ -265,6 +265,14 @@ div > a {
   }
 }
 
+.modify-btn-div {
+  text-align: center;
+}
+
+.modify-btn-div > button {
+  width: 200px;
+}
+
 /* Megjelenített oszlopok beállítása kisebb méretű kijelzőn 2 oszlopra. */
 @media screen and (max-width: 720px) {
   .gallery {
@@ -281,4 +289,16 @@ div > a {
   #menu {
     display: block;
   }
+
+  #modify-buttons > button {
+    width: 90%;
+  }
+  
+  #modify-buttons {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
 }

@@ -40,7 +40,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <h4>Regisztrálj ingyenesen.</h4>
             </div>
 
-            <div class="form-group input-group font-weight-light mb-5">
+            <div class="form-group input-group font-weight-light mb-4">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-user" id="user"></i></div>
                 </div>
@@ -49,7 +49,7 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <div class="invalid-feedback reg-username-error ml-2">Felhasználónév megadása kötelező.</div>
             </div>
 
-            <div class="form-group input-group font-weight-light mb-5">
+            <div class="form-group input-group font-weight-light mb-4">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-envelope"></i></div>
                 </div>
@@ -58,13 +58,22 @@ if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
                 <div class="invalid-feedback reg-email-error ml-2">Email cím megadása kötelező.</div>
             </div>
 
-            <div class="form-group input-group font-weight-light">
+            <div class="form-group input-group font-weight-light mb-4">
                 <div class="input-group-prepend">
                     <div class="input-group-text"><i class="fa fa-lock" id="lock"></i></div>
                 </div>
 
                 <input type="password" class="form-control" id="reg-password" placeholder="Jelszó" />
                 <div class="invalid-feedback reg-pass-error ml-2">Jelszó megadása kötelező.</div>
+            </div>
+
+            <div class="form-group input-group font-weight-light">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="fa fa-lock" id="lock"></i></div>
+                </div>
+
+                <input type="password" class="form-control" id="confirm-password" placeholder="Jelszó megerősítése" />
+                <div class="invalid-feedback confirm-pass-error ml-2">Jelszó megerősítése kötelező.</div>
             </div>
 
             <div class="form-check ml-2">

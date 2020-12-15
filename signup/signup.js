@@ -31,8 +31,19 @@ $(document).ready(function() {
     });
 
     // Jelszó mező ellenőrzése.
+    password = "";
     $("#reg-password").blur(function() {
         password = $(this).val();
+
+        if ($("#confirm-password").val() == password && password != "") {
+            $("#confirm-password").removeClass("is-invalid");
+            $("#confirm-password").addClass("is-valid");
+        } else if ($("#confirm-password").val() != "" && $("#confirm-password").val() != password && password != "") {
+            $(".confirm-pass-error").html("A jelszavak nem egyeznek meg.");
+            $("#confirm-password").removeClass("is-valid");
+            $("#confirm-password").addClass("is-invalid");
+        }
+
         if (password.length < 1) {
             $(this).addClass("is-invalid");
         } else if (password.length < 6) {
@@ -41,6 +52,20 @@ $(document).ready(function() {
         } else {
             $(this).removeClass("is-invalid");
             $(this).addClass("is-valid");
+        }
+    });
+
+    // Jelsző megerősítésének ellenőrzése.
+    $("#confirm-password").blur(function () {
+        confirmPassword = $(this).val();
+        if (confirmPassword.length < 1) {
+            $(this).addClass("is-invalid");
+        } else if (password != "" && confirmPassword == password) {
+            $(this).removeClass("is-invalid");
+            $(this).addClass("is-valid");
+        } else {
+            $(this).addClass("is-invalid");
+            $(".confirm-pass-error").html("A jelszavak nem egyeznek meg.");
         }
     });
 
@@ -57,6 +82,7 @@ $(document).ready(function() {
         const username_field = document.querySelector("#reg-username");
         const email_field = document.querySelector("#reg-email");
         const password_field = document.querySelector("#reg-password");
+        const passwordConfirm_field = document.querySelector("#confirm-password");
         rulesAccepted = false;
 
         if (!username_field.classList.contains("is-valid")) {
@@ -67,6 +93,9 @@ $(document).ready(function() {
         }
         if (!password_field.classList.contains("is-valid")) {
             $("#reg-password").addClass("is-invalid");
+        }
+        if (!passwordConfirm_field.classList.contains("is-valid")) {
+            $("#confirm-password").addClass("is-invalid");
         }
 
         // Szabályzat ellenőrzése
@@ -79,7 +108,9 @@ $(document).ready(function() {
 
         if (username_field.classList.contains("is-valid") &&
             email_field.classList.contains("is-valid") &&
-            password_field.classList.contains("is-valid") && rulesAccepted) {
+            password_field.classList.contains("is-valid") &&
+            passwordConfirm_field.classList.contains("is-valid") 
+            && rulesAccepted) {
 
             username = $("#reg-username").val();
             email = $("#reg-email").val();

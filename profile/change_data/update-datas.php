@@ -2,9 +2,15 @@
 session_start();
 require_once("../../server.php");
 
-$email = $_POST['email'];
-$password = md5($_POST['password']);
+if (isset($_POST["code"])) {
+    $password = md5($_POST["password"]);
 
-$sql = "UPDATE registered_accounts SET email = '" . $email . "', password = '" . $password . "' WHERE username = '" . $_SESSION['username'] . "'";
-$result = mysqli_query($conn, $sql);
+    $sql = "UPDATE registered_accounts SET password = '" . $password . "' WHERE username = '" . $_SESSION['username'] . "'";
+    $result = mysqli_query($conn, $sql);
+} else {
+    $email = $_POST['email'];
+
+    $sql = "UPDATE registered_accounts SET email = '" . $email . "' WHERE username = '" . $_SESSION['username'] . "'";
+    $result = mysqli_query($conn, $sql);
+}
 ?>
