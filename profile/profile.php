@@ -120,5 +120,13 @@ if (isset($_POST["logout"])) {
     <div class="alert alert-danger alert-lg text-center border mt-5 mb-5" hidden id="failedUpload" role="alert">
             A fénykép feltöltése sikertelen.
     </div>
+
+    <div class="alert alert-danger alert-lg text-center border mt-5 mb-5" hidden id="wrongFileType" role="alert">
+            Érvénytelen fájl formátum.
+    </div>
+
+    <div class="alert alert-danger alert-lg text-center border mt-5 mb-5" hidden id="empty_upload" role="alert">
+            Fájl kiválasztása kötelező.
+    </div>
 </body>
 </html>

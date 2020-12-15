@@ -1,40 +1,24 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 
-  if (localStorage.getItem("login")) {
-    localStorage.removeItem("login");
-    $("#successedLogin").removeAttr("hidden");
-    $("#successedLogin").hide();
+  showResponseMessage("login", "#successedLogin");
+  showResponseMessage("success_upload", "#successedUpload");
+  showResponseMessage("failed_upload", "#failedUpload");
+  showResponseMessage("wrong_file_type", "#wrongFileType");
+  showResponseMessage("empty_upload", "#empty_upload")
 
-    $("#successedLogin").fadeIn(2000);
-
-    setTimeout(() => {
-      $("#successedLogin").fadeOut();
-    }, 4000);
-  }
-
-  if (localStorage.getItem("success_upload")) {
-    localStorage.removeItem("success_upload");
-    $("#successedUpload").removeAttr("hidden");
-    $("#successedUpload").hide();
-
-    $("#successedUpload").fadeIn(2000);
-
-    setTimeout(() => {
-      $("#successedUpload").fadeOut();
-    }, 4000);
-  }
-
-  if (localStorage.getItem("failed_upload")) {
-    localStorage.removeItem("failed_upload");
-    $("#failedUpload").removeAttr("hidden");
-    $("#failedUpload").hide();
-
-    $("#failedUpload").fadeIn(2000);
-
-    setTimeout(() => {
-      $("#failedUpload").fadeOut();
-    }, 4000);
+  function showResponseMessage(localStorageItem, attrName) {
+    if (localStorage.getItem(localStorageItem)) {
+      localStorage.removeItem(localStorageItem);
+      $(attrName).removeAttr("hidden");
+      $(attrName).hide();
+  
+      $(attrName).fadeIn(2000);
+  
+      setTimeout(() => {
+        $(attrName).fadeOut();
+      }, 4000);
+    }
   }
 
   $("#file").change(function () {
