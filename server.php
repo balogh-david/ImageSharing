@@ -1,11 +1,11 @@
 <?php
 // Adatbázis kapcsolat.
-$server_name = "127.0.0.1";
-$server_username = "root";
-$server_password = "";
-$database = "image_sharing";
+Flight::set("server_name", "127.0.0.1");
+Flight::set("server_username", "root");
+Flight::set("server_password", "");
+Flight::set("database", "image_sharing");
 
-$conn = new mysqli($server_name, $server_username, $server_password, $database);
+$conn = new mysqli(Flight::get("server_name"), Flight::get("server_username"), Flight::get("server_password"), Flight::get("database"));
 
 if ($conn->connect_error) {
     die("Sikertelen kapcsolódás: " . $conn->connect_error);

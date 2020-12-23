@@ -1,16 +1,17 @@
 <?php
 session_start();
+require '../../flight/Flight.php';
 require_once("../../server.php");
 
 if (isset($_POST["code"])) {
-    $password = md5($_POST["password"]);
+    Flight::set("password", md5($_POST["password"]));
 
-    $sql = "UPDATE registered_accounts SET password = '" . $password . "' WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($conn, $sql);
+    Flight::set("sql", "UPDATE registered_accounts SET password = '" . Flight::get("password") . "' WHERE username = '" . $_SESSION['username'] . "'");
+    $result = mysqli_query($conn, Flight::get("sql"));
 } else {
-    $email = $_POST['email'];
+    Flight::set("email", $_POST['email']);
 
-    $sql = "UPDATE registered_accounts SET email = '" . $email . "' WHERE username = '" . $_SESSION['username'] . "'";
-    $result = mysqli_query($conn, $sql);
+    Flight::set("sql", "UPDATE registered_accounts SET email = '" . Flight::get("email") . "' WHERE username = '" . $_SESSION['username'] . "'");
+    $result = mysqli_query($conn, Flight::get("sql"));
 }
 ?>

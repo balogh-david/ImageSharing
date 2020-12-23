@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+  
   sorting = "DESC";
   limit = 20;
 
@@ -19,6 +21,7 @@ $(document).ready(function () {
         $("#show_images").html(data);
         $("#more_images").show();
         limit = 20;
+        $('[data-toggle="tooltip"]').tooltip();
       },
     });
   });
@@ -26,7 +29,7 @@ $(document).ready(function () {
   $("#more_images").click(function (e) {
     e.preventDefault();
     $.ajax({
-      type: "get",
+      type: "post",
       url: "display_images/more_images.php",
       data: {
         limit: limit,
@@ -39,6 +42,7 @@ $(document).ready(function () {
           $(".overflow-auto").css({ "overflow-anchor": "none" });
           $("#show_images").append(data);
           limit += 10;
+          $('[data-toggle="tooltip"]').tooltip();
         }
       },
     });
@@ -108,4 +112,19 @@ function openImage(src, id) {
 
 function closeImage() {
   $("#image-modal").modal("hide");
+}
+
+function deleteImage(id) {
+  $.post(
+    "display_images/delete-image.php",
+    {
+      image_id: id
+    },
+    function (response) {
+      console.log(response);
+      if (response.match(100)) {
+        location.reload();
+      }
+    }
+  )
 }

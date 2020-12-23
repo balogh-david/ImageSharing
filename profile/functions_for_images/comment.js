@@ -1,30 +1,4 @@
 $(document).ready(function () {
-  $("img").click(function () {
-    image_id = $(this).attr("id");
-    $.post(
-      "functions_for_images/select-comments.php",
-      {
-        image_id: image_id,
-      },
-      function (data) {
-        loadComment(data);
-      }
-    );
-
-    $.post(
-      "functions_for_images/get-image-owner.php",
-      {
-        image_id: image_id,
-      },
-      function (data) {
-        $(".image-view-upload-data").html(data);
-      }
-    );
-  });
-
-  function loadComment(data) {
-    $("#comments").html(data);
-  }
 
   $("#like").click(function () {
 
@@ -70,3 +44,25 @@ $(document).ready(function () {
     }
   });
 });
+
+function selectComments(id) {
+  $.post(
+    "functions_for_images/select-comments.php",
+    {
+      image_id: id,
+    },
+    function (data) {
+      $("#comments").html(data);
+    }
+  );
+
+  $.post(
+    "functions_for_images/get-image-owner.php",
+    {
+      image_id: id,
+    },
+    function (data) {
+      $(".image-view-upload-data").html(data);
+    }
+  );
+}

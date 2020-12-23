@@ -1,0 +1,11 @@
+Options -MultiViews
+
+RewriteEngine On
+
+# GET kérésnél, ha php fájlról van szó, akkor törli a .php kiterjesztést.
+RewriteCond %{REQUEST_METHOD} GET
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [NC,L,R]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L,END]

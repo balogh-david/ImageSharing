@@ -1,11 +1,12 @@
 <?php
+require '../../flight/Flight.php';
 require_once("../../server.php");
 
 if (isset($_POST["image_id"])) {
-    $id = $_POST["image_id"];
+    Flight::set("id", $_POST["image_id"]);
 
-    $select_image_owner = "SELECT username, uploaded_on FROM images WHERE image_id = '$id';";
-    $result = mysqli_query($conn, $select_image_owner);
+    Flight::set("select_image_owner", "SELECT username, uploaded_on FROM images WHERE image_id = " . Flight::get("id") . ";");
+    $result = mysqli_query($conn, Flight::get("select_image_owner"));
 
     if ($result->num_rows > 0) {
         $row = mysqli_fetch_array($result);

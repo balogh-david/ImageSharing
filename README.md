@@ -1,6 +1,6 @@
 # Képmegosztó
 
-A program egy kezdetleges képmegosztó weboldalt reprezentál, amely 5 fő funkciót lát el.
+A program egy kezdetleges képmegosztó weboldalt reprezentál, amely 6 fő funkciót lát el.
 
 **1. A felhasználói fiók kezelése:**
 A weboldal használatához szükség van egy felhasználói fiókra.
@@ -47,6 +47,10 @@ Ehhez a következő adatokat kell megadnunk:
  * **Új jelszó**
  * **Régi jelszó megerősítése**
 
+**6. A felhasználó általt feltöltött képek törlése:**
+A saját fényképek oldalon a felhasználó tudja törölni a képeit.
+A kép törlése esetén a képhez tartozó hozzászólások és kedvelések száma törlésre kerül.
+
 # A program használatához szükséges programok
 
 A program futtatásához a `XAMPP 7.4.11` verziója szükséges!
@@ -57,11 +61,11 @@ A program futtatásához szükséges elhelyezni a fájl tartalmát a `XAMPP/htdo
 
 A program megfelelő mükődéséhez importálni kell a `phpMyAdmin` felületén az adatbázist. 
 A `phpMyAdmin` elérhető a `XAMPP` applikációban az `Admin` fülre kattintva.
-Az importáláshoz szükséges sql script:
+Az adatbázis importáláshoz szükséges sql script:
 https://github.com/bdavid01/ImageSharing/blob/master/sql/image_sharing.sql
 
 A folyamatok elvégzése után a következő oldalon érhető el a weboldal:
-`http://localhost/ImageSharing/login/login.php`
+`http://localhost/ImageSharing/login`
 
 # Felhasznált technológiák
 * **JQuery 3.5.1**
@@ -69,4 +73,9 @@ A folyamatok elvégzése után a következő oldalon érhető el a weboldal:
 * **HTML5**
 * **CSS**
 * **Bootstrap 4.5.3**
-* **PHP 5.2.0**
+* **PHP 7.4.11**
+* **Flight PHP Framework v1.3.8**
+
+# Felhasznált képek
+**A kezdőlapon:**
+`https://wallpaperscraft.com/wallpaper/motorcycle_motorcyclist_cross_194300`

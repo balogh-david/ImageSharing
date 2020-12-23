@@ -60,6 +60,7 @@ nav > div > p {
 }
 
 .modal-image > img:hover {
+  cursor: default;
   transform: none;
 }
 
@@ -122,6 +123,7 @@ textarea:focus {
 
 img:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 #image-data > img:hover {
@@ -129,7 +131,8 @@ img:hover {
 }
 
 .img:hover > .bottom-left-date,
-.img:hover > .centered {
+.img:hover > .centered,
+.img:hover > .top-right-delete {
   display: flex;
 }
 
@@ -140,6 +143,16 @@ img:hover {
   display: none;
   background: black;
   padding: 4px 8px;
+}
+
+.top-right-delete {
+  position: absolute;
+  color: white;
+  top: 8px;
+  right: 0;
+  display: none;
+  background: black;
+  padding: 6px 12px;
 }
 
 .alert {

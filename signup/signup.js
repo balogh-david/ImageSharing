@@ -139,7 +139,7 @@ $(document).ready(function() {
                         $(".reg-email-error").html("Ez az email cím már használatban van.");
                     } else {
                         localStorage.setItem("registration", "success");
-                        window.location.href = "../login/login.php";
+                        window.location.href = "../login";
                     }
                 });
         }

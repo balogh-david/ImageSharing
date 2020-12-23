@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-title">
         <div>
-          <a class="btn mr-2" id="modal-download">Letöltés</a>
+          <a class="btn mr-2" id="modal-download"><?php echo $modalDownload ?></a>
           <button class="btn" id="like-btn"><i class="fa fa-heart-o fa-lg" id="like"></i></button>
         </div>
         <div class="mr-4 pb-3 pt-0">
@@ -23,10 +23,9 @@
         <div class="text-center mb-3 mt-3">
           <textarea class="ml-3 mr-3 text-center" rows="1" placeholder="Hozzászólás írása..."></textarea>
           <br />
-          <button class="btn mt-3" id="send-comment">Hozzászólás elküldése</button>
+          <button class="btn mt-3" id="send-comment"><?php echo $sendComment ?></button>
         </div>
       </div>
     </div>
   </div>
-  <script src="functions_for_images/comment.js"></script>
 </div>

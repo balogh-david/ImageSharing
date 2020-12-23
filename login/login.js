@@ -45,7 +45,7 @@ $(document).ready(function() {
                     $(".error").html("Hibás felhasználónév vagy jelszó.");
                 } else {
                     localStorage.setItem("login", "success");
-                    window.location.href = "../profile/profile.php";
+                    window.location.href = "../profile";
                 }
             });
     });
