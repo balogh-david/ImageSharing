@@ -94,6 +94,8 @@ $(document).ready(function () {
         if (response.match(100)) {
           localStorage.setItem("imageIsDeleted", 202);
           location.reload();
+        } else {
+          localStorage.setItem("imageIsNotDeleted", 300);
         }
       }
     );

@@ -128,5 +128,9 @@ if (isset($_POST["logout"])) {
     <div class="alert alert-success alert-lg text-center border mt-5 mb-5" hidden id="imageIsDeleted" role="alert">
         <?php echo $imageIsDeletedMsg ?>
     </div>
+
+    <div class="alert alert-danger alert-lg text-center border mt-5 mb-5" hidden id="imageIsNotDeleted" role="alert">
+        <?php echo $imageIsNotDeletedMsg ?>
+    </div>
 </body>
 </html>

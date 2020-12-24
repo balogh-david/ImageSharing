@@ -17,6 +17,7 @@ Flight::render('../profile/profile.php', array(
                                                'wrongFileTypeMsg' => 'Érvénytelen fájl formátum.',
                                                'emptyUploadMsg' => 'Fájl kiválasztása kötelező.',
                                                'imageIsDeletedMsg' => 'Fénykép törlése sikeres volt.',
+                                               'imageIsNotDeletedMsg' => 'Fénykép törlése sikeretelen volt.',
 
                                                #change_data/modify.php
                                                'modifyTitle' => 'Fiókhoz tartozó adatok módosítása',

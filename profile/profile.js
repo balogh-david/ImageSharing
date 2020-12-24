@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 
+  showResponseMessage("imageIsNotDeleted", "#imageIsNotDeleted");
   showResponseMessage("imageIsDeleted", "#imageIsDeleted");
   showResponseMessage("login", "#successedLogin");
   showResponseMessage("success_upload", "#successedUpload");
