@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
-  
+
+  deletedImageId = -1;
   sorting = "DESC";
   limit = 20;
 
@@ -56,18 +57,18 @@ $(document).ready(function () {
       $.post(
         "display_images/download.php",
         {
-          imageId: id
+          imageId: id,
         },
         function (response) {
           var uint8 = new Uint8Array(response.length);
-          for (var i = 0; i <  uint8.length; i++){
-              uint8[i] = response.charCodeAt(i);
+          for (var i = 0; i < uint8.length; i++) {
+            uint8[i] = response.charCodeAt(i);
           }
 
-          blob = new Blob([uint8], {type:  "image/jpeg;charset=utf-8"});
+          blob = new Blob([uint8], { type: "image/jpeg;charset=utf-8" });
           navigator.msSaveOrOpenBlob(blob, "fenykep.jpeg");
         }
-      )
+      );
     } else {
       element = window.document.createElement("a");
       element.setAttribute("href", src);
@@ -80,6 +81,22 @@ $(document).ready(function () {
 
       document.body.removeChild(element);
     }
+  });
+
+  $("#delete").click(function () {
+    $.post(
+      "display_images/delete-image.php",
+      {
+        image_id: deletedImageId,
+      },
+      function (response) {
+        console.log(response);
+        if (response.match(100)) {
+          localStorage.setItem("imageIsDeleted", 202);
+          location.reload();
+        }
+      }
+    );
   });
 });
 
@@ -115,16 +132,6 @@ function closeImage() {
 }
 
 function deleteImage(id) {
-  $.post(
-    "display_images/delete-image.php",
-    {
-      image_id: id
-    },
-    function (response) {
-      console.log(response);
-      if (response.match(100)) {
-        location.reload();
-      }
-    }
-  )
+  $("#confirm-delete-image").modal("show");
+  deletedImageId = id;
 }

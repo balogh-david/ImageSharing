@@ -16,6 +16,7 @@ Flight::render('../profile/profile.php', array(
                                                'failedUploadMsg' => 'A fénykép feltöltése sikertelen.',
                                                'wrongFileTypeMsg' => 'Érvénytelen fájl formátum.',
                                                'emptyUploadMsg' => 'Fájl kiválasztása kötelező.',
+                                               'imageIsDeletedMsg' => 'Fénykép törlése sikeres volt.',
 
                                                #change_data/modify.php
                                                'modifyTitle' => 'Fiókhoz tartozó adatok módosítása',
@@ -38,6 +39,12 @@ Flight::render('../profile/profile.php', array(
 
                                                #display_images/all-images.php / profile-tab.php
                                                'moreImages' => 'További képek..',
+                                               'deleteModalTitle' => 'Fénykép törlése',
+                                               'deleteConfirmMsg' => 'Biztos törölni szeretnéd a képet?',
+                                               'deleteInfo' => 'A fénykép törlésével törlödnek a hozzá tartozó hozzászólások és kedvelések is.',
+                                               'deleteInfoTwo' => 'A törlés nem vonható vissza!',
+                                               'deleteBtn' => 'Törlés',
+                                               'skipDeleteBtn' => 'Mégse',
 
                                                #display_images/image-modal.php
                                                'modalDownload' => 'Letöltés',
