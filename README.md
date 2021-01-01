@@ -70,6 +70,9 @@ A `phpMyAdmin` elérhető a `XAMPP` applikációban az `Admin` fülre kattintva.
 Az adatbázis importáláshoz szükséges sql script:
 https://github.com/bdavid01/ImageSharing/blob/master/sql/image_sharing.sql
 
+A megfelelő mükődéshez futattni kell a következő command line parancsot:
+`composer install`
+
 A futtatáshoz szükséges command line parancs:
 `php -S localhost:8000 routing.php`, amelyet a projekt fő mappájában kell kiadni.
 
