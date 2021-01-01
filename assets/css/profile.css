@@ -1,0 +1,323 @@
+* {
+  box-sizing: border-box;
+}
+
+.gallery {
+  padding: 14px 6px;
+  column-count: 4;
+  column-gap: 24px;
+}
+
+#navbar {
+  background: rgba(0, 0, 0,.9);
+}
+
+.img {
+  filter: drop-shadow(3px 3px 0.1rem black);
+  margin-bottom: 24px;
+  overflow: hidden;
+  position: relative; 
+  width: 100%;
+}
+
+.account-information {
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+nav > p,
+nav > div > p {
+  line-height: 2;
+}
+
+#comments {
+  padding-left: 4px;
+  height: 200px;
+  overflow-y: auto;
+}
+
+#comments > div {
+  background: rgb(231, 230, 230);
+  color: black;
+  padding: 0px 8px;
+  border-radius: 6px;
+  overflow-wrap: break-word;
+}
+
+.font-wight {
+  font-weight: 500;
+}
+
+#no-comment {
+  margin-top: 90px;
+}
+
+#modal-download {
+  background: #202020;
+  width: 120px;
+  color: white;
+  margin: 10px 0 20px 10px;
+}
+
+.modal-image > img:hover {
+  cursor: default;
+  transform: none;
+}
+
+.modal-image > img {
+  max-width: 100%;
+  max-height: 500px;
+}
+
+#total-count-images {
+  background: rgb(9, 175, 31);
+  border: 1px solid black;
+  color: white;
+}
+
+#total-liked-images {
+  background: rgb(91, 107, 199);
+  border: 1px solid black;
+  color: white;
+}
+
+#logout:hover,
+#username:hover {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+  width: 50%;
+  outline: 0;
+  padding: 4px 8px;
+  overflow: hidden;
+  border: none;
+  border-bottom: 1px solid darkgray;
+}
+
+#send-comment {
+  background: var(--main-color);
+  color: white;
+  width: 200px;
+  margin-top: 10px;
+}
+
+textarea:focus {
+  border-bottom: 1px solid black;
+}
+
+#total-count-hearts {
+  background: rgb(199, 91, 91);
+  border: 1px solid black;
+  color: white;
+}
+
+#like-btn {
+  line-height: normal;
+  background: var(--main-color);
+  outline: 0;
+  margin-top: -10px;
+  padding: 8px 16px;
+}
+
+.img > img {
+  display: inline-block;
+  width: 100%;
+  transition: 0.5s all;
+}
+
+img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#image-data > img:hover {
+  transform: none;
+}
+
+.img:hover > .bottom-left-date,
+.img:hover > .centered,
+.img:hover > .top-right-delete {
+  display: flex;
+}
+
+.bottom-left-date {
+  position: absolute;
+  color: white;
+  bottom: 8px;
+  display: none;
+  background: black;
+  padding: 4px 8px;
+}
+
+.top-right-delete {
+  position: absolute;
+  color: white;
+  top: 8px;
+  right: 0;
+  display: none;
+  background: black;
+  padding: 6px 12px;
+}
+
+.alert {
+  bottom: 0;
+}
+
+#modify-footer > .alert {
+  position: unset;
+}
+
+#modify-btn {
+  width: 40%;
+  border-radius: 5px;
+}
+
+#more_images,
+button[name="submit"] {
+  width: 200px;
+  color: white;
+  background: black;
+}
+
+button[name="submit"]:hover {
+  color: white;
+}
+
+input[name="submit"] {
+  width: 200px;
+  line-height: 0;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+nav {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+
+.overlay-content {
+  position: relative;
+  top: 25%;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+.modal-title > div > .closebtn {
+  font-size: 35px;
+}
+
+.centered {
+  color: white;
+  position: absolute;
+  top: 8px;
+  display: none;
+  background: black;
+  padding: 4px 8px;
+}
+
+#responsive-sorting {
+  display: none;
+}
+
+#menu {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+div > a {
+  cursor: pointer;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -10px;
+}
+
+.image-view-upload-data {
+  padding: 3px 0;
+}
+
+@media screen and (max-width: 991px) {
+  textarea {
+    width: 93.5%;
+  }
+
+  #send-comment {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  textarea {
+    width: 91%;
+  }
+}
+
+/* Megjelenített oszlopok beállítása kisebb méretű kijelzőn 3 oszlopra. */
+@media screen and (max-width: 900px) {
+  .gallery {
+    column-count: 3;
+  }
+}
+
+.modify-btn-div {
+  text-align: center;
+}
+
+.modify-btn-div > button {
+  width: 200px;
+}
+
+/* Megjelenített oszlopok beállítása kisebb méretű kijelzőn 2 oszlopra. */
+@media screen and (max-width: 720px) {
+  .gallery {
+    column-count: 2;
+  }
+}
+
+/* Megjelenített oszlopok beállítása kisebb méretű kijelzőn 1 oszlopra. */
+@media screen and (max-width: 580px) {
+  .gallery {
+    column-count: 1;
+  }
+
+  #menu {
+    display: block;
+  }
+
+  #modify-buttons > button {
+    width: 90%;
+  }
+  
+  #modify-buttons {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+}

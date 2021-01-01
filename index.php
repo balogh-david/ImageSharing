@@ -1,62 +1,43 @@
 <?php
-require 'flight/Flight.php';
+require 'vendor/autoload.php';
+require 'controller/render/login-render-controller.php';
+require 'controller/render/signup-render-controller.php';
+require 'controller/render/home-render-controller.php';
+require 'controller/render/profile-render-controller.php';
+
 session_start();
 
-Flight::map('checkLoggedIn', function(){
-    return isset($_SESSION["id"]) && $_SESSION["id"] != null;
-});
 
-Flight::map('renderOrRedirectByLoggedIn', function($render, $redirect){
-    if (Flight::checkLoggedIn()) {
-        Flight::redirect($redirect);
-    } else {
-        Flight::render($render);
-    }
-});
+if (isset($_SESSION["id"]) && $_SESSION["id"] != null) {
+    Flight::route("GET|POST /profile", function() {
+        Flight::profileRender();
+    }); 
 
-Flight::map('renderOrRedirectByNotLoggedIn', function($render, $redirect){
-    if (!Flight::checkLoggedIn()) {
-        Flight::redirect($redirect);
-    } else {
-        Flight::render($render);
-    }
-});
+    Flight::route("GET|POST /logout", function() {
+        session_destroy();
+        Flight::redirect("login");
+    });
 
-Flight::route("/login", function() {
-    Flight::renderOrRedirectByLoggedIn("../login/render.php", "profile");
-});
+    Flight::route("GET|POST /*", function() {
+        Flight::redirect("../profile");
+    });
+} else {
+    Flight::route("GET|POST /home", function() {
+        Flight::homeRender();
+    }); 
 
-Flight::route("/login/*", function() {
-    Flight::redirect("login");
-});  
+    Flight::route("GET|POST /signup", function() {
+        Flight::signupRender();
+    });
 
-Flight::route("/home", function(  ) {
-    Flight::renderOrRedirectByLoggedIn("../home/render.php", "profile");
-}); 
+    Flight::route("GET|POST /login", function() {
+        Flight::loginRender();
+    });
 
-Flight::route("/home/*", function() {
-    Flight::redirect("home");
-}); 
-
-Flight::route("/signup", function() {
-    Flight::renderOrRedirectByLoggedIn("../signup/render.php", "profile");
-});
-
-Flight::route("/signup/*", function() {
-    Flight::redirect("signup");
-}); 
-
-Flight::route("/profile", function() {
-    Flight::renderOrRedirectByNotLoggedIn("../profile/render.php", "login");
-}); 
-
-Flight::route("/profile/*", function() {
-    Flight::redirect("profile");
-});
-
-Flight::route("/*", function() {
-    Flight::redirect("home");
-});
+    Flight::route("GET|POST /*", function() {
+        Flight::redirect("../login");
+    });
+}
 
 Flight::start();
 ?>
